@@ -1,0 +1,86 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+    border: 1px solid;
+    min-height: 250px;
+}
+
+.p_tags {
+    height: 25px;
+    border: thin solid;
+}
+
+@mixin webkit($key,$value) {
+    -webkit-#{$key}:#{$value};
+    -moz-#{$key}:#{$value};
+    -ms-#{$key}:#{$value};
+    -o-#{$key}:#{$value};
+    #{$key}:#{$value};
+}
+
+@mixin boxShadow($hlen,$vlen,$blur,$spread,$color, $inset: "") {
+    
+    $shadow: $inset $hlen $vlen $blur $spread $color;
+    
+    @include webkit('box-shadow', $shadow);
+}
+
+.r_menu {
+    width: 300px;
+    background: #FFFBFC;
+    @include boxShadow(3px,2px,1px,0px,rgba(0, 16, 11, 0.29));
+    border: thin solid rgba(0, 16, 11, 0.5);
+    overflow:hidden;
+    
+    & + * {
+        cursor: default;
+        &:hover {
+            background: initial;
+        }
+    }
+    
+    & *:not(ul) {
+        cursor: default;
+        &:hover {
+            background: rgba(128, 128, 128, 0.19);
+        }
+    }
+    
+ 
+}
+
+.r_menu .item {
+    padding: 10px;
+    display: block;
+    color: red;
+    width: 280px;
+    text-align: left;
+    margin-right: -.5em;
+
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+
